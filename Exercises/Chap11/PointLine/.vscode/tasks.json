@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run PointLine",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/pointType.cpp",
+        "src/lineType.cpp",
+        "-o",
+        "bin/pointline.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+
+    {
+      "label": "run PointLine",
+      "type": "shell",
+      "dependsOn": "build and run PointLine",
+      "command": "${workspaceFolder}/bin/pointline.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
