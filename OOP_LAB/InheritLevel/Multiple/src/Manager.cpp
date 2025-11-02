@@ -1,6 +1,6 @@
 #include "Manager.h"
 
-Manager::Manager(string d) {
+Manager::Manager(int id, int s, int r, float c, string d): Employee(id, s), Student(r, c) {
     department = d;
 }
 

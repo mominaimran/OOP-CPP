@@ -1,5 +1,13 @@
 #include "clockType.h"
 
+void clockType::setHr(int h){
+    hr = h;
+}
+
+int clockType::getHr(){
+    return hr;
+}
+
 clockType::clockType(int h, int m, int s)
 {
     hr = h;

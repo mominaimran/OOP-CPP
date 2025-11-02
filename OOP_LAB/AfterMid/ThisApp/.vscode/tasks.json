@@ -2,17 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build and run Task1",
+      "label": "build and run ThisApp",
       "type": "shell",
       "command": "D:/MSYS2/ucrt64/bin/g++.exe",
       "args": [
         "-g",
         "-Iinclude",
         "main.cpp",
-        "src/Person.cpp",
-        "src/Employee.cpp",
+        "src/Where.cpp",
         "-o",
-        "bin/task1.exe"
+        "bin/thisapp.exe"
       ],
       "group": {
         "kind": "build",
@@ -21,10 +20,10 @@
       "problemMatcher": ["$gcc"]
     },
     {
-      "label": "run Task1",
+      "label": "run ThisApp",
       "type": "shell",
-      "dependsOn": "build and run Task1",
-      "command": "${workspaceFolder}/bin/task1.exe",
+      "dependsOn": "build and run ThisApp",
+      "command": "bin/thisapp.exe",
       "group": {
         "kind": "test",
         "isDefault": true

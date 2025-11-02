@@ -8,7 +8,7 @@ using namespace std;
 class Manager : public Employee, public Student {
     string department;
 public:
-    Manager(string d = "N/A");
+    Manager(int id=0, int s=0, int r=0, float c=0.0, string d="N/A");
     void getData();
     void showData();
 };
