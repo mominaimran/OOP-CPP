@@ -5,7 +5,6 @@ using namespace std;
 
 void Circle::draw() {
     string code = getColorCode(color);
-
     cout << "\nColor: " << color << endl;
     cout << code;
     cout << "   @@@   \n";

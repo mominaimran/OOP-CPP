@@ -2,16 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build and run DoctorApp",
+      "label": "build and run StudentApp2",
       "type": "shell",
       "command": "D:/MSYS2/ucrt64/bin/g++.exe",
       "args": [
         "-g",
         "-Iinclude",
         "main.cpp",
-        "src/Surgeon.cpp",
+        "src/Student.cpp",
         "-o",
-        "bin/doctorapp.exe"
+        "bin/studentapp2.exe"
       ],
       "group": {
         "kind": "build",
@@ -20,10 +20,10 @@
       "problemMatcher": ["$gcc"]
     },
     {
-      "label": "run DoctorApp",
+      "label": "run StudentApp2",
       "type": "shell",
-      "dependsOn": "build and run DoctorApp",
-      "command": "${workspaceFolder}/bin/doctorapp.exe",
+      "dependsOn": "build and run StudentApp2",
+      "command": "bin/studentapp2.exe",
       "group": {
         "kind": "test",
         "isDefault": true
