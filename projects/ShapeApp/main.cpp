@@ -1,84 +1,62 @@
-#include <iostream>
+#include <SFML/Graphics.hpp>
 #include "Circle.h"
 #include "Square.h"
 #include "Triangle.h"
 #include "Sphere.h"
 #include "Cube.h"
 #include "Tetrahedron.h"
-#include "ColorUtils.h"
-using namespace std;
-
+#include <iostream>
+#include <optional>
 int main() {
-    int type, shapeChoice;
-    string color;
-
-    cout << CYAN << "Select Shape Type:\n" << RESET;
-    cout << "1. Two Dimensional\n";
-    cout << "2. Three Dimensional\n";
-    cout << YELLOW << "Enter your choice: " << RESET;
-    cin >> type;
-
-    if (type == 1) {
-        cout << CYAN << "\nSelect a 2D Shape:\n" << RESET;
-        cout << "1. Circle\n2. Square\n3. Triangle\n";
-        cout << YELLOW << "Enter your choice: " <<  RESET;
-        cin >> shapeChoice;
-
-        cout << MAGENTA << "Enter color: " << RESET;
-        cin >> color;
-
-        if (shapeChoice == 1) {
-            Circle c;
-            c.setColor(color);
-            c.showType();
-            c.draw();
+    sf::RenderWindow window(sf::VideoMode({600u, 600u}), "Shape Drawer");
+    Shape* shape = nullptr;
+    while (window.isOpen()) {
+        // --- Event Handling ---
+        while (auto eventOpt = window.pollEvent()) {
+            auto& event = *eventOpt;
+            if (event.is<sf::Event::Closed>()) {
+                window.close();
+            }
         }
-        else if (shapeChoice == 2) {
-            Square s;
-            s.setColor(color);
-            s.showType();
-            s.draw();
+        // --- Input Handling ---
+        std::cout << "\n---- Choose type of shape ---- \n1. 2D\n2. 3D\n0. Exit\n";
+        int dimChoice;
+        std::cout << "Choose dimension: ";
+        std::cin >> dimChoice;
+        if (dimChoice == 0) break;
+        delete shape;
+        shape = nullptr;
+        if (dimChoice == 1) {
+            std::cout << "\n **** Choose 2D shape ****\n1. Circle\n2. Square\n3. Triangle\n";
+            int choice2D;
+            std::cout << "Choice: ";
+            std::cin >> choice2D;
+            switch(choice2D) {
+                case 1: shape = new Circle(100.f); break;
+                case 2: shape = new Square(150.f); break;
+                case 3: shape = new Triangle(150.f); break;
+                default: std::cout << "Invalid 2D choice!\n"; continue;
+            }
+        } else if (dimChoice == 2) {
+            std::cout << "\n **** Choose 3D shape ****\n1. Sphere\n2. Cube\n3. Tetrahedron\n";
+            int choice3D;
+            std::cout << "Choice: ";
+            std::cin >> choice3D;
+            switch(choice3D) {
+                case 1: shape = new Sphere(80.f); break;
+                case 2: shape = new Cube(120.f); break;
+                case 3: shape = new Tetrahedron(120.f); break;
+                default: std::cout << "Invalid 3D choice!\n"; continue;
+            }
+        } else {
+            std::cout << "Invalid choice!\n";
+            continue;
         }
-        else if (shapeChoice == 3) {
-            Triangle t;
-            t.setColor(color);
-            t.showType();
-            t.draw();
-        }
-        else cout << RED << "Invalid Shape!\n" RESET;
+        // --- Draw Loop (one frame after input) ---
+        window.clear(sf::Color::Black);
+        if (shape) shape->draw(window);
+        window.display();
     }
-    else if (type == 2) {
-        cout << "\nSelect a 3D Shape:\n";
-        cout << "1. Sphere\n2. Cube\n3. Tetrahedron\n";
-        cout << YELLOW << "Enter your choice: " RESET;
-        cin >> shapeChoice;
-
-        cout << "Enter color: ";
-        cin >> color;
-
-        if (shapeChoice == 1) {
-            Sphere s;
-            s.setColor(color);
-            s.showType();
-            s.draw();
-        }
-        else if (shapeChoice == 2) {
-            Cube c;
-            c.setColor(color);
-            c.showType();
-            c.draw();
-        }
-        else if (shapeChoice == 3) {
-            Tetrahedron t;
-            t.setColor(color);
-            t.showType();
-            t.draw();
-        }
-        else cout << "Invalid Shape!\n";
-    }
-    else {
-        cout << "Invalid Type!\n";
-    }
-
+    delete shape;
     return 0;
 }

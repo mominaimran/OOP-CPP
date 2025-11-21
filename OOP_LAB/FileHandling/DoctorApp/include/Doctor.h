@@ -1,16 +1,20 @@
 #ifndef DOCTOR_H
 #define DOCTOR_H
+
 #include <string>
+#include <iostream>
 using namespace std;
+
 class Doctor {
-protected:
+private:
+    int id;
     string name;
-    int age;
+
 public:
-    Doctor();
-    string getName();
-    int getAge();
-    void getData();
+    Doctor(int i = 0, string n = "unknown");
+    int getId();
+    void setData();
     void showData();
 };
+
 #endif

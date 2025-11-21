@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run DoctorApp",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/Doctor.cpp",
+        "src/Surgeon.cpp", 
+        "-o",
+        "bin/doctorapp.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+
+    {
+      "label": "run DoctorApp",
+      "type": "shell",
+      "dependsOn": "build and run DoctorApp",
+      "command": "${workspaceFolder}/bin/doctorapp.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}

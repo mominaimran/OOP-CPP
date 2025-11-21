@@ -1,16 +1,8 @@
-#ifndef SHAPE_H
-#define SHAPE_H
-
-#include <iostream>
-#include <string>
-using namespace std;
+#pragma once
+#include <SFML/Graphics.hpp>
 
 class Shape {
-protected:
-    string color;
 public:
-    void setColor(const string& c);
-    string getColor() const;
+    virtual void draw(sf::RenderWindow& window) = 0;
+    virtual ~Shape() {}
 };
-
-#endif

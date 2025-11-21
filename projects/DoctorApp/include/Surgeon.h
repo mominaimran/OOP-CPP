@@ -1,11 +1,9 @@
 #ifndef SURGEON_H
 #define SURGEON_H
-
 #include <iostream>
 #include <fstream>
 #include <iomanip>
 using namespace std;
-
 class Surgeon {
 private:
     int id;
@@ -13,7 +11,6 @@ private:
     int age;
     char specialization[50];
     int salary;
-
 public:
     Surgeon();
     int getId() const;
@@ -27,11 +24,9 @@ public:
     void modifyData();
 };
 
-// Function declarations
 int getLastID();
 void addSurgeon();
 void displayAll();
 void modifyRecord();
 void copyFile();
-
 #endif

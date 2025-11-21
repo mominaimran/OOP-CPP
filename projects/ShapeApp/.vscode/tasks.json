@@ -1,41 +1,19 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "build and run ShapeApp",
-      "type": "shell",
-      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
-      "args": [
-        "-g",
-        "-Iinclude",
-        "main.cpp",
-        "src/Shape.cpp",
-        "src/TwoDimensionalShape.cpp",
-        "src/ThreeDimensionalShape.cpp",
-        "src/Circle.cpp",
-        "src/Square.cpp",
-        "src/Triangle.cpp",
-        "src/Cube.cpp",
-        "src/Tetrahedron.cpp",
-        "src/Sphere.cpp",
-        "-o",
-        "bin/shapeapp.exe"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"]
-    },
-    {
-      "label": "run ShapeApp",
-      "type": "shell",
-      "dependsOn": "build and run ShapeApp",
-      "command": "${workspaceFolder}/bin/shapeapp.exe",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      }
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build & Run SFML Assignment",
+            "type": "shell",
+            "command": "g++ main.cpp src/Circle.cpp src/Square.cpp src/Triangle.cpp src/Sphere.cpp src/Cube.cpp src/Tetrahedron.cpp -Iinclude -IC:/Users/momin/OneDrive/Desktop/libraries/SFML-3.0.2/include -LC:/Users/momin/OneDrive/Desktop/libraries/SFML-3.0.2/lib -lsfml-graphics -lsfml-window -lsfml-system -lfreetype -lopengl32 -lwinmm -lgdi32 -luser32 -ladvapi32 -o app.exe; Start-Process .\\app.exe",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
 }
+
+
+
+
