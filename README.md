@@ -21,7 +21,9 @@ This repository contains all my **OOP in C++** work — including lab tasks, pra
 - Friend Functions  
 - Operator Overloading  
 - Composition & Aggregation  
+- Templates
 - File Handling  
+- Exception Handling
 
 ---
 
