@@ -2,6 +2,7 @@
 #define DOCTOR_H
 #include <string>
 using namespace std;
+
 class Doctor {
 protected:
     string name;
@@ -13,4 +14,5 @@ public:
     void getData();
     void showData();
 };
+
 #endif
