@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run AirlineReservationSystem",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "-finput-charset=UTF-8",
+        "-fexec-charset=UTF-8",
+        "main.cpp",
+        "src/Admin.cpp",
+        "src/Flight.cpp",
+        "src/Passenger.cpp",
+        "src/Ticket.cpp",
+        "src/FileManager.cpp",
+        "-o",
+        "bin/airlinereservationsystem.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "run AirlineReservationSystem",
+      "type": "shell",
+      "dependsOn": "build and run AirlineReservationSystem",
+      "command": "chcp 65001 | Out-Null ; ${workspaceFolder}/bin/airlinereservationsystem.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
+

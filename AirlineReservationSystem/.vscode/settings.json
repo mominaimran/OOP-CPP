@@ -1,0 +1,7 @@
+{
+    "C_Cpp.default.compilerPath": "D:/MSYS2/ucrt64/bin/g++.exe",
+    "files.associations": {
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
