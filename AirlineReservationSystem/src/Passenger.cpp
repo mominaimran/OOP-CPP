@@ -209,7 +209,7 @@ void Passenger::viewBookedTicket()
 // Lets a passenger safely change their booked seat, updating both ticket and flight files.
 void Passenger::updateBooking()
 {
-    cout << BOLD_YELLOW << "\n══════════ ✈ UPDATE BOOKING ✈ ══════════\n"
+    cout << BOLD_CYAN << "\n══════════ ✈  UPDATE BOOKING ✈  ══════════\n"
          << RESET;
 
     string pnr;
@@ -267,9 +267,6 @@ void Passenger::updateBooking()
     cout << BOLD_CYAN << "Passenger Name: " << RESET << userTicket.getPassengerName() << "\n";
     cout << BOLD_CYAN << "Flight ID: " << RESET << userFlight.getFlightID() << "\n";
     cout << BOLD_CYAN << "Old Seat: " << RESET << userTicket.getSeatNumber() << "\n";
-
-    cout << BOLD_YELLOW << "\n--- Available Seats ---\n"
-         << RESET;
     userFlight.displaySeatMap();
 
     // --- Unreserve old seat ---

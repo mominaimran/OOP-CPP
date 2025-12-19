@@ -131,7 +131,7 @@ void Flight::displaySeatMap() const
             cout << endl;
     }
 
-    cout << BOLD_YELLOW << "\n=====================================\n"
+    cout << BOLD_CYAN << "=====================================" << endl
          << RESET;
 }
 
